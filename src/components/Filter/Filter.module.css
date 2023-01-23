@@ -1,0 +1,13 @@
+.input {
+  margin-top: 20px;
+  width: 500px;
+  height: 35px;
+  padding-left: 15px;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  background: linear-gradient(rgba(35, 43, 85, 0.75), rgba(35, 43, 85, 0.95));
+  color: azure;
+  font-size: 20px;
+  font-weight: 500;
+}
