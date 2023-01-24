@@ -16,17 +16,17 @@ const authSlice = createSlice({
       .addCase(operations.register.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.token = payload.token;
-        state.isLoggedIn = true;
+        state.isLogged = true;
       })
       .addCase(operations.logIn.fulfilled, (state, { payload }) => {
         state.user = payload.user;
         state.token = payload.token;
-        state.isLoggedIn = true;
+        state.isLogged = true;
       })
       .addCase(operations.logOut.fulfilled, state => {
         state.user = { name: null, email: null };
         state.token = null;
-        state.isLoggedIn = false;
+        state.isLogged = false;
       })
       .addCase(operations.refreshCurrentUser.pending, state => {
         state.isRefreshUser = true;
@@ -38,7 +38,7 @@ const authSlice = createSlice({
         operations.refreshCurrentUser.fulfilled,
         (state, { payload }) => {
           state.user = payload;
-          state.isLoggedIn = true;
+          state.isLogged = true;
           state.isRefreshUser = false;
         }
       );
