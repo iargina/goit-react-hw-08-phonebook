@@ -1,0 +1,16 @@
+.nav {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  color: #fff;
+  background: linear-gradient(rgba(35, 43, 85, 0.75), rgba(35, 43, 85, 0.95));
+  background-size: 400% 400%;
+}
+
+.link {
+  font-size: 30px;
+  color: rgb(255, 246, 246);
+  text-decoration: none;
+}
