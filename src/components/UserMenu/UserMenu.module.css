@@ -1,0 +1,21 @@
+.link {
+  font-size: 30px;
+  color: rgb(255, 246, 246);
+  text-decoration: none;
+}
+.title {
+  font-size: 30px;
+  color: rgb(201, 195, 195);
+  margin-left: auto;
+}
+
+.button {
+  padding: 10px;
+  width: 150px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  font-size: 25px;
+  font-weight: 600;
+  color: rgb(0, 60, 112);
+}

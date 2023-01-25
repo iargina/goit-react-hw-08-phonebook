@@ -1,11 +1,12 @@
 import { LoginForm } from 'components/LoginForm/LoginForm';
+
 import css from './Login.module.css';
 
 export default function Login() {
   return (
-    <div className={css.container}>
-      <h3>Log In here</h3>
+    <section className={css.container}>
+      <h1>Log In here</h1>
       <LoginForm />{' '}
-    </div>
+    </section>
   );
 }

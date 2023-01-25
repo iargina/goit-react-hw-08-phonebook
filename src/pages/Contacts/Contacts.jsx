@@ -1,14 +1,18 @@
-import { ContactForm } from 'components/ContactForm/ContactForm';
-import { Filter } from 'components/Filter/Filter';
-import { ContactList } from 'components/ContactList/ContactList';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchContact } from 'redux/contacts/operations';
+import { useEffect } from 'react';
 import {
   getContacts,
   getError,
   getIsLoading,
 } from 'redux/contacts/selectors_contact';
-import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+import { fetchContact } from 'redux/contacts/operations';
+
+import { ContactForm } from 'components/ContactForm/ContactForm';
+import { Filter } from 'components/Filter/Filter';
+import { ContactList } from 'components/ContactList/ContactList';
+import { Spinner } from 'components/Spinner/Spinner';
 
 export default function Contacts() {
   const contacts = useSelector(getContacts);
@@ -21,7 +25,7 @@ export default function Contacts() {
   }, [dispatch]);
 
   return (
-    <div
+    <section
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -34,8 +38,8 @@ export default function Contacts() {
       <h2 className="formTitle">PhoneBook</h2>
       <ContactForm />
       <h2 className="contactListTitle">Contacts</h2>
-      {isLoading && <p>Loading contacts...</p>}
-      {error && <p>{error}</p>}
+      {isLoading && <Spinner />}
+      {error && Notify.failure('Something went wrong.')}
       {contacts.length > 0 ? (
         <>
           <Filter />
@@ -44,6 +48,6 @@ export default function Contacts() {
       ) : (
         <p>Your have no contacts in your phone book</p>
       )}
-    </div>
+    </section>
   );
 }

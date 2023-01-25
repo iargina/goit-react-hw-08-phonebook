@@ -1,6 +1,7 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { deleteContacts, fetchContact, addContact } from './operations';
 import { logOut } from 'redux/auth/authOperations';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const extraActions = [fetchContact, addContact, deleteContacts];
 
@@ -12,6 +13,7 @@ const handlePending = state => {
 const handleRejected = (state, { payload }) => {
   state.isLoading = false;
   state.error = payload;
+  Notify.failure('Something went wrong');
 };
 const handleFulfilled = state => {
   state.isLoading = false;
@@ -19,6 +21,7 @@ const handleFulfilled = state => {
 };
 
 const contactsInitialState = { items: [], isLoading: false, error: null };
+
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState: contactsInitialState,

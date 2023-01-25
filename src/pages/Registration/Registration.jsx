@@ -1,11 +1,12 @@
 import { RegistrationForm } from 'components/RegistrationForm/RegistrationForm';
+
 import css from './Registration.module.css';
 
 export default function Registration() {
   return (
-    <div className={css.container}>
-      <h3> Registration </h3>
+    <section className={css.container}>
+      <h1> Registration </h1>
       <RegistrationForm />
-    </div>
+    </section>
   );
 }

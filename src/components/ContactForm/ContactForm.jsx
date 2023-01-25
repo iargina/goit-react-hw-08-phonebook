@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import css from './ContactForm.module.css';
 import { getContacts } from 'redux/contacts/selectors_contact';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { addContact } from 'redux/contacts/operations';
+
+import css from './ContactForm.module.css';
 
 export const ContactForm = () => {
   const [clientName, setName] = useState('');
@@ -21,7 +24,7 @@ export const ContactForm = () => {
         setNumber(ev.currentTarget.value);
         break;
       default:
-        alert('Something went wrong');
+        Notify.failure('Something went wrong');
     }
   };
 
@@ -36,7 +39,7 @@ export const ContactForm = () => {
       el => el.name.toLowerCase() === client.name.toLowerCase()
     );
     if (result) {
-      alert(`${client.name} is already in your contact list`);
+      Notify.warning(`${client.name} is already in your contact list`);
       return;
     }
 
